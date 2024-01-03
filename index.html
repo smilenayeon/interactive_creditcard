@@ -42,49 +42,69 @@
   <form>
     <div class="grid_1">
       <label for="card_name">CARDHOLDER NAME</label>
-      <input type="text" id="card_name" placeholder="e.g. Jane Appleseed"/>
+      <input 
+      type="text" 
+      id="card_name" 
+      placeholder="e.g. Jane Appleseed"
+      oninput="if (this.value.length > this.maxLength) this.value=this.value.slice(0, this.maxLength)"
+      maxlength="32"
+      />
     </div>
     <div class="grid_2">
       <label for="card_number">CARD NUMBER</label>
       <input 
         required
-        type="text"
-        inputmode="numeric"
+        type="number"
         id="card_number" 
-        placeholder=" e.g. 1234 5678 9123 0000" 
-        maxlength="16" 
+        placeholder=" e.g. 1234567891230000"
+        oninput="if (this.value.length > this.maxLength) this.value=this.value.slice(0, this.maxLength)"
         minlength="16"
-
-        />
+        maxlength="16"
+        min="0000000000000000"
+        max="9999999999999999"
+      />
     </div>
     <div class="grid_3">
       <label for="card_date">Exp. Date (MM/YY)</label>
       <div class="two_inp">
         <input 
-        required
-        id="card_month" 
-        type="number" 
-        placeholder="MM"
-        maxlength="2" 
-        minlength="2"  />
+          required
+          id="card_month" 
+          type="number"
+          placeholder="MM"
+          oninput="if (this.value.length > this.maxLength) this.value=this.value.slice(0, this.maxLength)"
+          minlength="2"
+          maxlength="2"
+          min="01" 
+          max="12"
+        />
         <input 
-        required
-        id="card_year" 
-        type="number" 
-        placeholder="YY"
-        maxlength="2" 
-        minlength="2" />
+          required
+          id="card_year" 
+          type="number"
+          placeholder="YY"
+          oninput="if (this.value.length > this.maxLength) this.value=this.value.slice(0, this.maxLength)"
+          minlength="2"
+          maxlength="2"
+          min="00" 
+          max="99"
+        />
       </div>
     </div>
     <div class="grid_4">
       <label for="card_CVC">CVC</label>
       <input 
-      required
-      id="card_CVC" 
-      type="number" 
-      placeholder=" e.g. 123"
-      maxlength="3" 
-      minlength="3"/>
+        required
+        id="card_CVC" 
+        type="number" 
+        placeholder=" e.g. 123"
+        oninput="if (this.value.length > this.maxLength) this.value=this.value.slice(0, this.maxLength)"
+        minlength="3"
+        maxlength="3"
+        min="000" 
+        max="999"
+       
+      />
     </div>
     <button id="confirm_button">Confirm</button>
   </form>

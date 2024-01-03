@@ -180,7 +180,7 @@ input:focus {
 }
 
 .error_message::after {
-  content: "can't be blank";
+  content: "error";
   color: red;
   margin-top: 0.2rem;
 }

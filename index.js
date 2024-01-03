@@ -6,6 +6,7 @@ const cardMonth = document.getElementById("month");
 const monthInp = document.getElementById("card_month");
 const cardYear = document.getElementById("year");
 const yearInp = document.getElementById("card_year");
+const cardDate = document.querySelector(".two_inp");
 const cardCVC = document.getElementById("cvc");
 const CVCInp = document.getElementById("card_CVC");
 const submitButton = document.getElementById("confirm_button");
@@ -38,6 +39,23 @@ function setCardCVC(e) {
     cardCVC.innerText = e.target.value;
 }
 
+function inpValid(inp) {
+    const min = parseInt(inp.getAttribute("min"));
+    const max = parseInt(inp.getAttribute("max"));
+    const theValue = parseInt(inp.value);
+
+    if (
+        inp.value.length >= inp.minLength &&
+        theValue >= min &&
+        theValue <= max
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 function handleSubmit(e){
     e.preventDefault();
     if(!nameInp.value){
@@ -47,38 +65,39 @@ function handleSubmit(e){
         nameInp.classList.remove("error");
         nameInp.parentElement.classList.remove("error_message");
     }
-    if(!numberInp.value || numberInp.length<16){
+    if(!numberInp.value || !inpValid(numberInp) ){
         numberInp.classList.add ("error");
         numberInp.parentElement.classList.add("error_message");
     }else{
         numberInp.classList.remove("error");
         numberInp.parentElement.classList.remove("error_message");
     }
-    if(!monthInp.value){
+    if(!monthInp.value || !inpValid(monthInp)){
         monthInp.classList.add ("error");
-        monthInp.parentElement.classList.add("error_message");
+        cardDate.parentElement.classList.add("error_message");
     }else{
         monthInp.classList.remove("error");
-        monthInp.parentElement.classList.remove("error_message");
+        cardDate.parentElement.classList.remove("error_message");
     }
-    if(!yearInp.value){
+    if(!yearInp.value || !inpValid(yearInp)){
         yearInp.classList.add ("error");
         yearInp.parentElement.classList.add("error_message");
     }else{
         yearInp.classList.remove("error");
         yearInp.parentElement.classList.remove("error_message");
     }
-    if(!CVCInp.value){
+    if(!CVCInp.value || !inpValid(CVCInp)){
         CVCInp.classList.add ("error");
         CVCInp.parentElement.classList.add("error_message");
     }else{
         CVCInp.classList.remove("error");
         CVCInp.parentElement.classList.remove("error_message");
     }
-    if(numberInp.value && nameInp.value && monthInp.value && yearInp.value && CVCInp.value){
+    if(nameInp.value && inpValid(numberInp) && inpValid(monthInp) && inpValid(yearInp) && inpValid(CVCInp) ){
         completed.classList.remove("hidden");
         form.classList.add("hidden");
     }
+    
 };
 
 numberInp.addEventListener("keyup", setCardNumber);
