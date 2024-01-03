@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive card details form</title>
+  <!--Google font-->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./public/css/style.css"/>
+</head>
+<body>
+<div class="container">
+<div class="card_image_section">
+      <div class="cards">
+        <div class="card_front">
+          <img src="public/images/bg-card-front.png" alt="card front"/>
+          <div class="card_logo">
+            <img src="public/images/card-logo.svg" alt="card logo"/>
+          </div>
+          <div id="number">0000 0000 0000 0000</div>
+          <div class="name_date">
+            <div id="name">JANE APPLESEED </div>
+            <div id="date">
+              <span id="month">00</span> 
+              / 
+              <span id="year">00</span></div>
+          </div>
+        </div>
+
+        <div class="card_back">
+          <img src="public/images/bg-card-back.png" alt="card back"/>
+          <div id="cvc">000</div>
+        </div>
+      </div>
+    
+</div>
+
+<div class="form_section">
+  <form>
+    <div class="grid_1">
+      <label for="card_name">CARDHOLDER NAME</label>
+      <input type="text" id="card_name" placeholder="e.g. Jane Appleseed"/>
+    </div>
+    <div class="grid_2">
+      <label for="card_number">CARD NUMBER</label>
+      <input 
+        required
+        type="text"
+        inputmode="numeric"
+        id="card_number" 
+        placeholder=" e.g. 1234 5678 9123 0000" 
+        maxlength="16" 
+        minlength="16"
+
+        />
+    </div>
+    <div class="grid_3">
+      <label for="card_date">Exp. Date (MM/YY)</label>
+      <div class="two_inp">
+        <input 
+        required
+        id="card_month" 
+        type="number" 
+        placeholder="MM"
+        maxlength="2" 
+        minlength="2"  />
+        <input 
+        required
+        id="card_year" 
+        type="number" 
+        placeholder="YY"
+        maxlength="2" 
+        minlength="2" />
+      </div>
+    </div>
+    <div class="grid_4">
+      <label for="card_CVC">CVC</label>
+      <input 
+      required
+      id="card_CVC" 
+      type="number" 
+      placeholder=" e.g. 123"
+      maxlength="3" 
+      minlength="3"/>
+    </div>
+    <button id="confirm_button">Confirm</button>
+  </form>
+</div>
+
+<!-- Completed state start -->
+<div class="completed hidden">
+  <div class="completed_sign">
+    <img src="public/images/icon-complete.svg" al="completed sign"/>
+  </div>
+  <h1>Thank you!</h1>
+  <p>We've added your card details</p>
+  <button id="continue_button">Continue</button>
+  
+</div>
+
+</div>
+ 
+  
+<div class="attribution">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+  Coded by <a href="#">Na Yeon (Diana) Go</a>.
+</div>
+ <script src="index.js"></script>
+</body>
+</html>

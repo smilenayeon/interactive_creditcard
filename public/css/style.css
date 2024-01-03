@@ -1,0 +1,271 @@
+* {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 25%;
+}
+
+.card_image_section {
+  background-image: url("../images/bg-main-desktop.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 30%;
+  min-height: 100vh;
+}
+
+.cards {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  left: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.card_front {
+  transform: translateX(-20%);
+}
+.card_front .card_logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+.card_front #number {
+  position: absolute;
+  bottom: 30%;
+  left: 1rem;
+  letter-spacing: 2px;
+  color: hsl(0, 0%, 100%);
+  font-size: 33px;
+}
+.card_front .name_date {
+  position: absolute;
+  bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  color: hsl(0, 0%, 100%);
+  left: 20px;
+}
+
+.card_back {
+  position: relative;
+}
+
+#cvc {
+  position: absolute;
+  color: hsl(0, 0%, 100%);
+  bottom: 6.5rem;
+  right: 3.5rem;
+}
+
+.form_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+label {
+  color: hsl(278, 68%, 11%);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  border: 1px solid hsl(279, 6%, 55%);
+  padding: 0.5rem;
+  border-radius: 6px;
+  width: 100%;
+}
+
+input::placeholder {
+  color: hsl(279, 6%, 55%);
+}
+
+input:focus {
+  outline-color: hsl(278, 68%, 11%);
+}
+
+.grid_1, .grid_2 {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 span;
+}
+
+.two_inp {
+  display: flex;
+  gap: 10px;
+}
+
+.grid_3 {
+  display: inline;
+}
+.grid_3 input {
+  text-align: center;
+}
+
+#confirm_button {
+  grid-column: 2 span;
+  background-color: hsl(278, 68%, 11%);
+  color: hsl(0, 0%, 100%);
+  border: none;
+  border-radius: 10px;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+.completed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.completed h1 {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 2rem;
+}
+.completed p {
+  color: hsl(279, 6%, 55%);
+}
+.completed #continue_button {
+  width: 100%;
+  background-color: hsl(278, 68%, 11%);
+  color: hsl(0, 0%, 100%);
+  border: none;
+  border-radius: 10px;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.error_message {
+  gap: 0;
+}
+
+.error_message::after {
+  content: "can't be blank";
+  color: red;
+  margin-top: 0.2rem;
+}
+
+@media screen and (max-width: 1023px) {
+  .cards {
+    transform: translateX(-30%, -50%);
+  }
+  .card_front {
+    width: 300px;
+  }
+  .card_front img {
+    width: 300px;
+  }
+  .card_front #number {
+    font-size: 1.1rem;
+  }
+  .card_front #name, .card_front #date {
+    font-size: 0.8rem;
+  }
+  .card_front .card_logo {
+    width: 50px;
+  }
+  .card_front .card_logo img {
+    width: 50px;
+  }
+  .card_back {
+    width: 300px;
+  }
+  .card_back img {
+    width: 300px;
+  }
+  .card_back #cvc {
+    top: 42%;
+    right: 12%;
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    gap: 6rem;
+  }
+  .card_image_section {
+    background-image: url("../images/bg-main-mobile.png");
+    width: 100%;
+    min-height: 30vh;
+  }
+  .cards {
+    flex-direction: column-reverse;
+    left: 61%;
+    top: 60%;
+    gap: 0;
+  }
+  .card_front {
+    width: 280px;
+    z-index: 999;
+  }
+  .card_front img {
+    width: 280px;
+  }
+  .card_front #number {
+    font-size: 1.1rem;
+  }
+  .card_front #name, .card_front #date {
+    font-size: 0.8rem;
+  }
+  .card_front .card_logo {
+    width: 50px;
+  }
+  .card_front .card_logo img {
+    width: 50px;
+  }
+  .card_back {
+    width: 280px;
+    transform: translateY(72px);
+  }
+  .card_back img {
+    width: 280px;
+  }
+  .card_back #cvc {
+    top: 42%;
+    right: 12%;
+    font-size: 0.8rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

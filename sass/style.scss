@@ -1,0 +1,261 @@
+//varibles
+$white: hsl(0, 0%, 100%);
+$light-grayish-violet: hsl(270, 3%, 87%);
+$dark-grayish-violet: hsl(279, 6%, 55%);
+$very-dark-violet: hsl(278, 68%, 11%);
+$linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+$red : hsl(0, 100%, 66%);
+$space-grotesk-font: 'Space Grotesk', sans-serif;
+$basic-font-weight:500;
+$body-font-size:18px;
+
+//mixins
+@mixin grid-display{
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 span;
+}
+@mixin button{
+    background-color: $very-dark-violet;
+    color:$white;
+    border:none;
+    border-radius: 10px;
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+//styles
+*{
+    font-family: $space-grotesk-font;
+    font-weight: $basic-font-weight;
+    font-size: $body-font-size;
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+.container{
+    display: flex;
+    align-items: center;
+    gap:25%;
+}
+
+.card_image_section{
+    background-image: url("../images/bg-main-desktop.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:relative;
+    width:30%;
+    min-height: 100vh;
+}
+
+.cards{
+position: absolute;
+top:50%;
+display: flex;
+flex-direction: column;
+gap:2rem;
+left:100%;
+transform: translate(-50%, -50%);
+}
+
+.card_front{
+    transform:translateX(-20%);
+    
+    .card_logo{
+    position:absolute;
+    top:1rem;
+    left:1rem;
+    }
+
+    #number{
+        position:absolute;
+        bottom:30%;
+        left:1rem;
+        letter-spacing: 2px;
+        color:$white;
+        font-size: 33px;
+    }
+    .name_date{
+        position: absolute;
+        bottom:1.5rem;
+        display: flex;
+        justify-content: space-between;
+        width:90%;
+        color: $white;
+        left:20px;
+    }
+}
+.card_back{
+    position:relative;
+}
+#cvc{
+    position: absolute;
+    color:$white;
+    bottom:6.5rem;
+    right:3.5rem;
+}
+
+.form_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:350px;
+
+}
+form{
+    display: grid;
+    gap:1rem;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(4,1fr);
+}
+label{
+    color:$very-dark-violet;
+    text-transform: uppercase;
+    margin-bottom:0.5rem;
+}
+
+input{
+    border:1px solid $dark-grayish-violet;
+    padding:0.5rem;
+    border-radius: 6px;
+    width:100%;
+    
+}
+
+input::placeholder{
+    color:$dark-grayish-violet;
+}
+input:focus{
+    outline-color:$very-dark-violet;
+}
+
+.grid_1, .grid_2{
+    @include grid-display;
+}
+.two_inp{
+    display: flex;
+    gap:10px;
+}
+.grid_3{
+    display: inline;
+    input{
+        text-align: center;
+    }
+}
+#confirm_button{
+    grid-column: 2 span;
+    @include button;
+  
+}
+
+.completed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:2rem;
+    h1{
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 2rem;
+    }
+    p{
+        color: $dark-grayish-violet;
+    }
+    #continue_button{
+        width:100%;
+        @include button;
+
+
+    }
+}
+
+.hidden{
+    display: none;
+}
+
+.error{
+    border:2px solid red;
+}
+.error_message{
+    gap:0;
+}
+.error_message::after{
+    content:"can't be blank";
+    color:red;
+    margin-top:0.2rem;
+}
+
+@media screen and (max-width:1023px) {
+   
+    .cards{
+        transform: translateX(-30%, -50%);
+    }
+    .card_front {
+        width:300px;
+        img{width: 300px;}
+        #number {font-size: 1.1rem;}
+        #name, #date{font-size: 0.8rem;}
+        .card_logo{
+            width: 50px;
+            img{ width: 50px;}
+        }
+
+    }
+    .card_back{
+        width: 300px;
+        img{width: 300px;}
+        #cvc{
+        top:42%;
+        right:12%;
+        font-size: 0.8rem;
+
+    }
+    }
+}
+
+@media screen and (max-width:767px) {
+    .container{
+        flex-direction: column;
+        gap:6rem;}
+    .card_image_section{
+        background-image: url("../images/bg-main-mobile.png");
+        width:100%;
+        min-height:30vh;
+    }
+    .cards{
+        flex-direction: column-reverse;
+        left:61%;
+        top:60%;
+        gap:0;
+    }
+    .card_front {
+        width:280px;
+        img{width: 280px;}
+        z-index: 999;
+        #number {font-size: 1.1rem;}
+        #name, #date{font-size: 0.8rem;}
+        .card_logo{
+            width: 50px;
+            img{ width: 50px;}
+        }
+
+    }
+    .card_back{
+        width: 280px;
+        transform: translateY(72px);
+        img{width: 280px;}
+        #cvc{
+        top:42%;
+        right:12%;
+        font-size: 0.8rem;
+
+    }
+    }
+}

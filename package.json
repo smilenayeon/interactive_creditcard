@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "sass": "^1.69.5"
+  },
+  "name": "interactive-card-details-form-main",
+  "description": "![Design preview for the Interactive card details form coding challenge](./design/desktop-preview.jpg)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "sass": "sass --watch sass/style.scss:public/css/style.css"
+  },
+  "author": "Na Yeon (Diana)",
+  "license": "ISC"
+}
