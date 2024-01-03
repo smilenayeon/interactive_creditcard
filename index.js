@@ -47,7 +47,7 @@ function handleSubmit(e){
         nameInp.classList.remove("error");
         nameInp.parentElement.classList.remove("error_message");
     }
-    if(!numberInp.value){
+    if(!numberInp.value || numberInp.length<16){
         numberInp.classList.add ("error");
         numberInp.parentElement.classList.add("error_message");
     }else{
